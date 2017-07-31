@@ -25,7 +25,7 @@
 [百度](www.baidu.com)
 
 #图片</br>
-![react logo](https://github.com/hudengbao/demo/favicon.ico)
+![react logo](https://github.com/hudengbao/demo/raw/master/favicon.ico)
 
 
 
