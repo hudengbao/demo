@@ -26,7 +26,7 @@ export default class NavLeft extends Component{
                     </SubMenu>
                 )
             }
-            return <Menu.item title={item.title} key={item.key}>{item.title}</Menu.item>
+            return <Menu.Item title={item.title} key={item.key}>{item.title}</Menu.Item>
         })
     }
 
@@ -34,7 +34,7 @@ export default class NavLeft extends Component{
         return (
             <div>
                 <div className="logo" >
-                    <img src='/assets/logo.svg' />
+                    <img src='/assets/logo.svg' alt=''/>
                     <h1>hello</h1>
                 </div>
                 <div>
