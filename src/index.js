@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/common.less';
-import App from './App';
-import {LocaleProvider } from 'antd';
+import App from './router';
+import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment';//处理日期
 import 'moment/locale/zh-cn';

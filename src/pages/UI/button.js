@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default  class Home extends React.Component {
+export default class Button extends React.Component {
 
-    render() {
+    render(){
         return (
             <div>
-                <p>home</p>
+                <p>ccccc</p>
             </div>
         )
 
