@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route, HashRouter as Router } from 'react-router-dom'
+import { Route, HashRouter as Router, Switch } from 'react-router-dom'
 import Login from './pages/login'
 import Admin from './pages/admin'
 import Button from './pages/UI/button'
 import Home from './pages/home'
+import NoMatch from './pages/errPage'
 import App from './App'
 
 export default class AppRouter extends React.Component {
@@ -15,8 +16,11 @@ export default class AppRouter extends React.Component {
                     <Route path="/login" component={Login} />
                     <Route path="/admin" render = {()=>
                         <Admin>
-                            <Route path="/admin/ui/button" component={Button} />
-                            <Route path="/admin/home" component={Home} />
+                            <Switch>
+                                <Route path="/admin/ui/button" component={Button} />
+                                <Route path="/admin/home" component={Home} />
+                                <Route component={NoMatch} />
+                            </Switch>
                         </Admin>
                     } />
                 </App>
