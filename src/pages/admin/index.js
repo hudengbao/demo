@@ -15,7 +15,7 @@ export default class App extends Component{
                 <Col span={21} className="main">
                     <Header />
                     <Row className="content">
-                        <div className="wrap">{this.props.children}</div>
+                        {this.props.children}
                     </Row>
                     <Footer />
                 </Col>
