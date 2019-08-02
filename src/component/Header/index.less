@@ -1,0 +1,44 @@
+@import './../../style/default.less';
+
+.header{
+    background-color:@colorM;
+    .header-top{
+        line-height: 60px;
+        text-align:right;
+        padding:0 20px;
+    }
+    a{
+        margin-left: 34px;
+    }
+    .weather{
+        text-align: right;
+        .weather-detail{
+            .weather-img{
+                height:14px;
+                margin-right: 5px;
+            }
+        }
+    }
+    .header-bottom{
+        line-height: 40px;
+        border-top:1px solid #1890ff;
+        padding:0 20px;
+        .date{
+            margin-right: 20px;
+        }
+        .breadrumb{
+            text-align-last: center;
+            &:after{
+                content:'';
+                display: block;
+                border-top:8px solid white;
+                border-right:12px solid transparent;
+                border-left:12px solid transparent;
+                position: absolute;
+                top:40px;
+                left:44%;
+            }
+        }
+           
+    }
+}
