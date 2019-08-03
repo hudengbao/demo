@@ -20,14 +20,30 @@ const menuList = [
                 title:'系统通知提醒框',
                 key: '/admin/ui/notification',
             },{
-                title:'message',
+                title:'提示',
                 key: '/admin/ui/message',
             },{
-                title:'tab',
+                title:'叶签',
                 key: '/admin/ui/tab',
             },{
-                title:'card',
+                title:'卡片',
                 key: '/admin/ui/card',
+            },{
+                title:'走马灯',
+                key: '/admin/ui/carousel',
+            }
+        ]
+    },
+    {
+        title:'表单',
+        key: '/admin/Form',
+        children: [
+            {
+                title:'登录',
+                key: '/admin/form/login',
+            }, {
+                title:'表单',
+                key: '/admin/form/form',
             }
         ]
     }

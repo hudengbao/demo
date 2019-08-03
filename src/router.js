@@ -9,6 +9,9 @@ import Notification from './pages/UI/notification'
 import Message from './pages/UI/message'
 import Tab from './pages/UI/tab'
 import Card from './pages/UI/card'
+import Carousel from './pages/UI/carousel'
+import Formlogin from './pages/form/login'
+import Form from './pages/form/form'
 import Home from './pages/home'
 import NoMatch from './pages/errPage'
 import App from './App'
@@ -31,6 +34,9 @@ export default class AppRouter extends React.Component {
                                 <Route path="/admin/ui/message" component={Message} />
                                 <Route path="/admin/ui/tab" component={Tab} />
                                 <Route path="/admin/ui/card" component={Card} />
+                                <Route path="/admin/ui/carousel" component={Carousel} />
+                                <Route path="/admin/form/login" component={Formlogin} />
+                                <Route path="/admin/form/form" component={Form} />
                                 <Route component={NoMatch} />
                             </Switch>
                         </Admin>
