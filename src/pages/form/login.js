@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Input, Card, message, Icon } from 'antd';
+import { Form, Button, Input, Card, message, Icon, Checkbox } from 'antd';
 
 class FormPage extends React.Component {
 
@@ -37,7 +37,7 @@ class FormPage extends React.Component {
                     </Form>
                 </Card>
                 <Card title="水平表单">
-                    <Form style={{width:360}}>
+                    <Form style={{width:280}}>
                         <Form.Item label="姓名">
                             {
                                 getFieldDecorator('userName',{
@@ -75,6 +75,17 @@ class FormPage extends React.Component {
                                     <Input  prefix={<Icon type="lock" />} placeholder="密码"/>
                                 )
                             }
+                        </Form.Item>
+                        <Form.Item>
+                            {
+                                getFieldDecorator('remember',{
+                                    initialValue: true,
+                                    valuePropName: 'checked'
+                                })(
+                                    <Checkbox>记住密码</Checkbox>
+                                )
+                            }
+                            <a href="#" style={{float:'right'}}>忘记密码</a>
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" onClick={this.handleSubmit}>登陆</Button>
