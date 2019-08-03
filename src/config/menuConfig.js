@@ -14,6 +14,18 @@ const menuList = [
             {
                 title:'弹框',
                 key: '/admin/ui/modals',
+            },
+            {
+                title:'加载',
+                key: '/admin/ui/loading',
+            },
+            {
+                title:'系统通知提醒框',
+                key: '/admin/ui/notification',
+            },
+            {
+                title:'message',
+                key: '/admin/ui/message',
             }
         ]
     }
