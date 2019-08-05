@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Input, Card } from 'antd';
+import { Form, Input, Card } from 'antd';
 
 class FormPage extends React.Component {
 

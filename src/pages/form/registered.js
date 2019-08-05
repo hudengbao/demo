@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Button, DatePicker, Input, Card, InputNumber, Switch, Checkbox, Radio, Select, Row, Col, Upload, Icon, message } from 'antd';
+import { Form, message, DatePicker, Button, Input, Card, InputNumber, Switch, Checkbox, Radio, Select, Upload, Icon, } from 'antd';
 import moment from 'moment'
 
 const RadioGroup = Radio.Group;
@@ -47,6 +47,24 @@ class FormPage extends React.Component {
         }
     };
 
+    handleSubmit = (e)=>{
+        e.preventDefault();
+
+        let userInfo = this.props.form.getFieldsValue();
+
+        console.log(userInfo)
+
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                message.success(`${userInfo.userName} 登陆成功`)
+            }
+        });
+    }
+
+    resetForm = ()=>{
+        this.props.form.resetFields()
+    }
+
     render() {
 
         const { getFieldDecorator } = this.props.form;
@@ -59,6 +77,16 @@ class FormPage extends React.Component {
             wrapperCol: {
                 xs:24,
                 sm:10
+            }
+        }
+
+        const formItemLogoLayout = {
+            wrapperCol: {
+                xs:24,
+                sm:{
+                    span:12,
+                    offset:4,
+                }
             }
         }
 
@@ -168,22 +196,38 @@ class FormPage extends React.Component {
                                 )
                             }
                         </FormItem>
-                        < FormItem label="头像">
+                        < FormItem {...formItemLogoLayout}>
                             {
                                 getFieldDecorator('logo',{
                                     initialValue: ''
                                 })(
                                     <Upload
-                                        name="avatar"
-                                        listType="picture-card"
-                                        className="avatar-uploader"
-                                        showUploadList={false}
-                                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                                        beforeUpload={beforeUpload}
-                                        onChange={this.handleChange}
-                                    >
-                                        {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-                                    </Upload>
+                                    name="avatar"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                    beforeUpload={beforeUpload}
+                                    onChange={this.handleLogoChange}
+                                >
+                                    {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                                </Upload>
+                                )
+                            }
+                        </FormItem>
+                        < FormItem {...formItemLogoLayout}>
+                            {
+                                getFieldDecorator('address')(
+                                    <Checkbox>同意</Checkbox>
+                                )
+                            }
+                        </FormItem>
+                        < FormItem {...formItemLogoLayout}>
+                            {
+                                getFieldDecorator('address')(
+                                    <div>
+                                        <Button type="primary" onClick={this.handleSubmit}>提交</Button>
+                                    </div>
                                 )
                             }
                         </FormItem>
