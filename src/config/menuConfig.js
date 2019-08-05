@@ -44,6 +44,9 @@ const menuList = [
             }, {
                 title:'表单',
                 key: '/admin/form/form',
+            }, {
+                title:'注册',
+                key: '/admin/form/registered',
             }
         ]
     }
