@@ -38,7 +38,7 @@ export default class ButtonPage extends React.Component {
                     <Button icon="delete">删除</Button>
                     <Button icon="search" shape="circle"></Button>
                     <Button icon="search" type="primary">搜索</Button>
-                    <Button type="download" type="primary">下载</Button>
+                    <Button icon="download" type="primary">下载</Button>
                 </Card>
                 <Card title="Loading按钮" className="card-wrap">
                     <Button loading={this.state.loading}>确定</Button>

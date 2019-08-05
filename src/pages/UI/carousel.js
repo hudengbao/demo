@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Carousel } from 'antd'
+import { Card, Carousel } from 'antd'
 import './ui.less'
 
 export default class CarouselPage extends React.Component {

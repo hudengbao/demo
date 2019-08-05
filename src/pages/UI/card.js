@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Row, Col, Icon, Modal } from 'antd'
+import { Card, Row, Col, Modal } from 'antd'
 import './ui.less'
 
 const { Meta } = Card;

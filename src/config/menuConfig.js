@@ -52,7 +52,7 @@ const menuList = [
         children: [
             {
                 title:'基础',
-                key: '/admin/form/table',
+                key: '/admin/table/table',
             }
         ]
     }
