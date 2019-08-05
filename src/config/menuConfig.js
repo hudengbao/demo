@@ -42,11 +42,17 @@ const menuList = [
                 title:'登录',
                 key: '/admin/form/login',
             }, {
-                title:'表单',
-                key: '/admin/form/form',
-            }, {
                 title:'注册',
                 key: '/admin/form/registered',
+            }
+        ]
+    },{
+        title:'表格',
+        key: '/admin/table',
+        children: [
+            {
+                title:'基础',
+                key: '/admin/form/table',
             }
         ]
     }
