@@ -55,7 +55,10 @@ const menuList = [
                 key: '/admin/table/table',
             }
         ]
-    }
+    },{
+        title:'Mobx',
+        key: '/admin/Mobx'
+    },
 ]
 
 export default menuList;
