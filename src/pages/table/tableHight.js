@@ -66,7 +66,6 @@ class TablePage extends React.Component {
         })
     }
 
-   
     render() {
 
         const columns = [
@@ -74,13 +73,29 @@ class TablePage extends React.Component {
                 title: 'id',
                 width:100,
                 dataIndex: 'id',
-                key: "id"
+                key: "id",
+                filters:[
+                    {"text":"111","value":1},
+                    {"text":"2222","value":2},
+                    {"text":"3333","value":3},
+                ],
+                onFilter: (value, record) => record.id == value,
             },
             {
                 title: '姓名',
                 width:100,
                 dataIndex: 'userName',
                 key: "userName"
+            },
+            {
+                title: '年龄',
+                width:80,
+                dataIndex: 'age',
+                key: "age",
+                sorter: (a, b) => {
+                    return a.age - b.age;
+                },
+                sortDirections: ['descend'],
             },
             {
                 title: '性别',
@@ -154,31 +169,31 @@ class TablePage extends React.Component {
                 title: '生日',
                 width:200,
                 dataIndex: 'date',
-                key: "date"
+                key: "date1"
             },
             {
                 title: '生日',
                 width:200,
                 dataIndex: 'date',
-                key: "date"
+                key: "date2"
             },
             {
                 title: '生日',
                 width:200,
                 dataIndex: 'date',
-                key: "date"
+                key: "date3"
             },
             {
                 title: '生日',
                 width:200,
                 dataIndex: 'date',
-                key: "date"
+                key: "date4"
             },
             {
                 title: '生日',
                 width:200,
                 dataIndex: 'date',
-                key: "date"
+                key: "date5"
             },
             {
                 title: '住址',
@@ -216,6 +231,7 @@ class TablePage extends React.Component {
                         columns={columns} 
                         pagination={false}
                         scroll={{y:300}}
+                        onChange={this.handleChange}
                     />
                 </Card>
                 <Card title="左侧固定" className="card-wrap">
