@@ -59,8 +59,11 @@ const menuList = [
             }
         ]
     },{
+        title:'城市管理',
+        key: '/admin/city/index'
+    },,{
         title:'Mobx',
-        key: '/admin/Mobx'
+        key: '/admin/Mobx/index'
     },
 ]
 

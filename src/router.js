@@ -13,6 +13,7 @@ import Carousel from './pages/UI/carousel'
 import Formlogin from './pages/form/login'
 import Registered from './pages/form/registered'
 import TableBase from './pages/table/table'
+import City from './pages/city/index'
 import TableHight from './pages/table/tableHight'
 import Home from './pages/home'
 import Mobx from './pages/mobx'
@@ -42,6 +43,7 @@ export default class AppRouter extends React.Component {
                                 <Route path="/admin/mobx" component={Mobx} />
                                 <Route path="/admin/table/tableHight" component={TableHight} />
                                 <Route path="/admin/table/table" component={TableBase} />
+                                <Route path="/admin/city/index" component={City} />
                                 <Route path="/admin/form/registered" component={Registered} />
                                 <Route component={NoMatch} />
                             </Switch>
