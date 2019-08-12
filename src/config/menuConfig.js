@@ -53,6 +53,9 @@ const menuList = [
             {
                 title:'基础',
                 key: '/admin/table/table',
+            },{
+                title:'高级',
+                key: '/admin/table/tableHight',
             }
         ]
     },{

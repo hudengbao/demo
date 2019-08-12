@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Table, Modal, Button } from 'antd'
-import axios from './../.././axios/index'
-import Utils from './../.././utils/utils'
+import axios from '../../axios/index'
+import Utils from '../../utils/utils'
 
 class TablePage extends React.Component {
 
@@ -25,7 +25,7 @@ class TablePage extends React.Component {
         let _this = this
 
         axios.ajax({
-            url: '/table/list',
+            url: '/table/tableList2',
             method:'get',
             data:{
                 params:{
@@ -40,11 +40,7 @@ class TablePage extends React.Component {
             this.setState({
                 dataSource: res.list,
                 selectedRowKeys: [],
-                selectedRows: [],
-                pagination:Utils.pagination(res,(current)=>{
-                    _this.params.page = current
-                    _this.request()
-                })
+                selectedRows: []
             })
 
 
@@ -76,16 +72,19 @@ class TablePage extends React.Component {
         const columns = [
             {
                 title: 'id',
+                width:100,
                 dataIndex: 'id',
                 key: "id"
             },
             {
                 title: '姓名',
+                width:100,
                 dataIndex: 'userName',
                 key: "userName"
             },
             {
                 title: '性别',
+                width:200,
                 dataIndex: 'sex',
                 key: "sex",
                 render(sex){
@@ -94,16 +93,19 @@ class TablePage extends React.Component {
             },
             {
                 title: '生日',
+                width:200,
                 dataIndex: 'date',
                 key: "date"
             },
             {
                 title: '住址',
+                width:160,
                 dataIndex: 'address',
                 key: "address"
             },
             {
                 title: '状态',
+                width:80,
                 dataIndex: 'status',
                 key: "status",
                 render(status){
@@ -117,6 +119,80 @@ class TablePage extends React.Component {
                     return config[status]
                 }
             }
+        ];
+
+        const columns2 = [
+            {
+                title: 'id',
+                width:100,
+                fixed:"left",
+                dataIndex: 'id',
+                key: "id"
+            },
+            {
+                title: '姓名',
+                width:100,
+                dataIndex: 'userName',
+                key: "userName"
+            },
+            {
+                title: '性别',
+                width:200,
+                dataIndex: 'sex',
+                key: "sex",
+                render(sex){
+                    return sex == 1 ? '男' :'女'
+                }
+            },
+            {
+                title: '生日',
+                width:200,
+                dataIndex: 'date',
+                key: "date"
+            },
+            {
+                title: '生日',
+                width:200,
+                dataIndex: 'date',
+                key: "date"
+            },
+            {
+                title: '生日',
+                width:200,
+                dataIndex: 'date',
+                key: "date"
+            },
+            {
+                title: '生日',
+                width:200,
+                dataIndex: 'date',
+                key: "date"
+            },
+            {
+                title: '生日',
+                width:200,
+                dataIndex: 'date',
+                key: "date"
+            },
+            {
+                title: '生日',
+                width:200,
+                dataIndex: 'date',
+                key: "date"
+            },
+            {
+                title: '住址',
+                width:160,
+                dataIndex: 'address',
+                key: "address"
+            },
+            {
+                title: '状态',
+                width:80,
+                fixed:"right",
+                dataIndex: 'status',
+                key: "status"
+            }    
         ];
 
         const { selectedRowKeys } = this.state;
@@ -133,15 +209,16 @@ class TablePage extends React.Component {
 
         return (
             <div>
-                <Card title="动态渲染表格+分页">
+                <Card title="表头固定" className="card-wrap">
                     <Table
                         bordered 
                         dataSource={this.state.dataSource} 
                         columns={columns} 
-                        pagination={this.state.pagination}
+                        pagination={false}
+                        scroll={{y:300}}
                     />
                 </Card>
-                <Card title="复选">
+                <Card title="左侧固定" className="card-wrap">
                     <div style={{marginBottom:20}}>
                         <Button type="primary" onClick={this.delClick}>删除</Button>
                     </div>
@@ -149,7 +226,8 @@ class TablePage extends React.Component {
                         bordered 
                         rowSelection={rowSelection}
                         dataSource={this.state.dataSource} 
-                        columns={columns} 
+                        columns={columns2}
+                        scroll={{x:1860}} 
                         pagination={this.state.pagination}
                     />
                 </Card>
