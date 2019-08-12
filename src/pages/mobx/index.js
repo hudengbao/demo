@@ -1,31 +1,41 @@
 import React from 'react'
-import { observable, computed, action } from "mobx";
+import { autobind } from 'core-decorators'
+import { observable, computed, action, autorun  } from "mobx"
+import {observer} from "mobx-react"
+import Todo from './todo'
 
+var age=34
 
-function testable(target) {
-    target.isTestable = true;
+var person = {
+    name:"fd",
+    age
 }
 
-@testable
-class MyTestableClass {}
+console.log(person)
 
-console.log(MyTestableClass.isTestable)
+const appStore = observable({
+    count : 0
+})
 
+appStore.increment = function(){
+    this.count++
+}
 
-export default class Login extends React.Component {
+appStore.decrement = function(){
+    this.count--
+}
 
-    componentDidMount(){
-        
-    }
+class Counter extends React.Component {
 
     render() {
         return (
             <div >
-                <p>0</p>
+                <p>dfsfsd</p>
+                <Todo store = {appStore} />
             </div>
             
         );
     }
-
-    
 }
+
+export default Counter;

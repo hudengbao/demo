@@ -19,9 +19,14 @@ export default class Axios{
 
     static ajax(options){
 
+        if(options.data && options.data.isLoading !== false){
+            document.getElementById("ajaxLoading").style.display = "block"
+        }
+
         let baseAPI = "https://www.easy-mock.com/mock/5d47d4f3a160b5335055d581/antdMock";
 
         return new Promise((resolver,reject)=>{
+
             axios({
                 url: options.url,
                 method: options.method,
@@ -29,6 +34,11 @@ export default class Axios{
                 timeout: 10000,
                 params: (options.data && options.data.params || '')
             }).then((response)=>{
+
+                if(options.data && options.data.isLoading !== false){
+                    document.getElementById("ajaxLoading").style.display = "none"
+                }
+
                 if(response.status == '200'){
 
                     let res = response.data.data;

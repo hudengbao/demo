@@ -19,7 +19,10 @@ class TablePage extends React.Component {
 
         axios.ajax({
             url: '/table/list',
-            method:'get'
+            method:'get',
+            data:{
+                // loading:true,
+            }
         }).then(res=>{
 
             this.setState({
