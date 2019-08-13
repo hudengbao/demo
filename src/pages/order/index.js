@@ -11,7 +11,9 @@ class City extends React.Component {
 
     state = {
         dataSource:[],
-        modalFag:false
+        modalFag:false,
+        selectedRowKeys:[],
+        selectedRows:[]
     }
 
     params = {
@@ -52,7 +54,16 @@ class City extends React.Component {
     }
 
     openOrderDetail=()=>{
-        window.open("/#/common/order/orderDetail/4","_blank")
+
+        if(this.state.selectedRows.length> 0){
+            let orderId = this.state.selectedRows[0].orderId
+            window.open(`/#/common/order/orderDetail/${orderId}`,"_blank")
+        }else{
+            Modal.info({
+                title:'提示',
+                content:'请选择订单'
+            })
+        } 
     }
 
     handleOpen=()=>{
@@ -139,6 +150,21 @@ class City extends React.Component {
 
         const { getFieldDecorator } = this.props.form;
 
+        const { selectedRowKeys } = this.state;
+        
+        const rowSelection = {
+            selectedRowKeys:selectedRowKeys,
+            type:'radio',
+            columnTitle:'选择',
+            onChange: (selectedRowKeys, selectedRows) => {
+
+                this.setState({
+                    selectedRowKeys, 
+                    selectedRows
+                })
+            }
+        };
+
         return (
             <div>
                 <Card className="card-wrap">
@@ -197,6 +223,7 @@ class City extends React.Component {
                 </Card>
                 <Card className="table-btn-margin">
                     <Table
+                        rowSelection={rowSelection}
                         bordered 
                         dataSource={this.state.dataSource} 
                         columns={columns}
