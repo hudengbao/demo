@@ -16,9 +16,12 @@ import TableBase from './pages/table/table'
 import City from './pages/city/index'
 import TableHight from './pages/table/tableHight'
 import Home from './pages/home'
+import Order from './pages/order'
+import OrderDetail from './pages/order/orderDetail'
 import Mobx from './pages/mobx'
 import NoMatch from './pages/errPage'
 import App from './App'
+import Common from './pages/common/common'
 
 export default class AppRouter extends React.Component {
 
@@ -43,15 +46,23 @@ export default class AppRouter extends React.Component {
                                 <Route path="/admin/mobx" component={Mobx} />
                                 <Route path="/admin/table/tableHight" component={TableHight} />
                                 <Route path="/admin/table/table" component={TableBase} />
+                                <Route path="/admin/order/index" component={Order} />
                                 <Route path="/admin/city/index" component={City} />
                                 <Route path="/admin/form/registered" component={Registered} />
                                 <Route component={NoMatch} />
                             </Switch>
                         </Admin>
                     } />
+                    <Route path="/common" render = {()=>
+                        <Common>
+                            <Switch>
+                                <Route path="/common/order/orderDetail/:orderId" component={OrderDetail}></Route>
+                                <Route component={NoMatch} />
+                            </Switch>
+                        </Common>
+                    } />
                 </App>
             </Router>
         )
-
     }
 }

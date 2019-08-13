@@ -61,9 +61,15 @@ const menuList = [
     },{
         title:'城市管理',
         key: '/admin/city/index'
-    },,{
+    },{
+        title:'订单管理',
+        key: '/admin/order/index'
+    },{
         title:'Mobx',
         key: '/admin/Mobx/index'
+    },{
+        title:'订单详情',
+        key: '/common/order/orderDetail'
     },
 ]
 
