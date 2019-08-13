@@ -41,9 +41,7 @@ export default class Axios{
 
                 if(response.status == '200'){
 
-                    let res = response.data.data;
-
-                    console.log(res)
+                    let res = response.data;
 
                     if(res.code == 200){
                         resolver(res.result)
@@ -55,6 +53,10 @@ export default class Axios{
                     }
                 }else{
                     reject(response.data)
+                }
+            }).catch(err=>{
+                if(options.data && options.data.isLoading !== false){
+                    document.getElementById("ajaxLoading").style.display = "none"
                 }
             })
         })
